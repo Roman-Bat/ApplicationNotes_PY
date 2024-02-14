@@ -22,6 +22,8 @@ class NoteManager:
                                                     указанным идентификатором.
         delete_note(id): Удаляет заметку с указанным идентификатором.
         save_to_file(): Сохраняет все заметки в файл.
+        read_notes_by_date(): Выводит все заметки между начальной и конечной датой
+        read_notes_by_id():  Выводит одну заметку по ID из файла
         """
     def __init__(self):
         # Список заметок
@@ -157,9 +159,16 @@ class NoteManager:
                 print()
         else:
             print("Нет заметок в указанном диапазоне дат.")
-
-
-
-
-
-
+    # Метод чтения заметок по id
+    def read_note_by_id(self, id):
+        # Поиск заметки по ID
+        separator_line = "-" * 30
+        note = next((note for note in self.notes if note.id == id), None)
+        if note:
+            print("Заметка найдена:")
+            print(separator_line)
+            print(note)
+            print(separator_line)
+            print()
+        else:
+            print("Заметка с указанным ID не найдена.")

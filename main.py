@@ -23,9 +23,10 @@ def main():
         print("1. Создать заметку")
         print("2. Читать все заметки")
         print("3. Читать заметки по дате")
-        print("4. Обновить заметку")
-        print("5. Удалить заметку")
-        print("6. Выйти")
+        print("4. Читать заметки по id")
+        print("5. Обновить заметку")
+        print("6. Удалить заметку")
+        print("7. Выйти")
 
         choice = input("Введите номер действия: ")
 
@@ -60,6 +61,11 @@ def main():
             # Вывод заметок в указанном диапазоне дат
             note_manager.read_notes_by_date(start_date, end_date)
         elif choice == "4":
+            # Запрос у пользователя ID заметки для чтения
+            id = input("Введите ID заметки для чтения: ")
+            # Вывод заметки по ID
+            note_manager.read_note_by_id(id)
+        elif choice == "5":
             # Запрос у пользователя ID заметки для обновления
             id = input("Введите ID заметки для обновления: ")
             # Проверка наличия заметки с указанным ID
@@ -72,12 +78,12 @@ def main():
                 note_manager.update_note(id, new_title, new_body)
             else:
                 print("Ошибка: Заметка с указанным ID не найдена. Пожалуйста, введите другой ID.")
-        elif choice == "5":
+        elif choice == "6":
             # Запрос у пользователя ID заметки для удаления
             id = input("Введите ID заметки для удаления: ")
             # Удаление заметки
             note_manager.delete_note(id)
-        elif choice == "6":
+        elif choice == "7":
             # Завершение работы программы
             print("Выход из программы.")
             break
