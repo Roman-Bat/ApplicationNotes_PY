@@ -128,3 +128,38 @@ class NoteManager:
             # Записываем каждую заметку в файл
             for note in self.notes:
                 writer.writerow([note.id, note.title, note.body, note.created_at])
+
+    # Метод чтения заметок по дате
+    def read_notes_by_date(self, start_date, end_date):
+        # Перед чтением заметок из файла обновляем список заметок, чтобы избежать дублирования
+        self.load_from_file()
+
+        # Преобразуем введенные пользователем даты в объекты datetime
+        start_date = datetime.strptime(start_date, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date, "%Y-%m-%d")
+
+        separator_line = "-" * 30
+        filtered_notes = []
+
+        for note in self.notes:
+            # Преобразуем дату создания заметки из строки в объект datetime
+            note_created_at = datetime.strptime(note.created_at, "%Y-%m-%d %H:%M:%S")
+            # Проверяем, попадает ли дата создания заметки в интервал между start_date и end_date
+            if start_date <= note_created_at <= end_date:
+                filtered_notes.append(note)
+
+        # Если в списке отфильтрованных заметок есть элементы, то выводим их, иначе выводим сообщение об отсутствии заметок
+        if filtered_notes:
+            for note in filtered_notes:
+                print(separator_line)
+                print(note)
+                print(separator_line)
+                print()
+        else:
+            print("Нет заметок в указанном диапазоне дат.")
+
+
+
+
+
+
