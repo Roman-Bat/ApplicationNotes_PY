@@ -5,6 +5,7 @@ def main():
     note_manager = NoteManager()
 
     while True:
+        print()
         print("Выберите действие:")
         print("1. Создать заметку")
         print("2. Читать заметки")

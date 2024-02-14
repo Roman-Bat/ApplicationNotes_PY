@@ -2,6 +2,7 @@ import csv
 from datetime import datetime
 from model.note import Note
 
+
 class NoteManager:
     """
         Класс NoteManager представляет собой менеджер заметок.
@@ -30,19 +31,15 @@ class NoteManager:
 
     # Метод для загрузки заметок из файла
     def load_from_file(self):
+        self.notes = []  # Очищаем список перед загрузкой заметок из файла
         try:
-            # Пытаемся открыть файл notes.csv для чтения
             with open("notes.csv", newline="") as file:
-                # Создаем объект reader для чтения файла в формате CSV
                 reader = csv.reader(file, delimiter=";")
-                # Пропускаем первую строку (заголовки)
-                next(reader)
-                # Для каждой строки в файле CSV создаем объект Note и добавляем его в список заметок
+                next(reader)  # Пропускаем заголовок
                 for row in reader:
                     id, title, body, created_at = row
                     self.notes.append(Note(id, title, body, created_at))
         except FileNotFoundError:
-            # Если файл не найден, создаем пустой файл
             self.create_empty_file()
 
     # Метод для создания пустого файла заметок
@@ -54,15 +51,16 @@ class NoteManager:
 
     # Метод для создания новой заметки
     def create_note(self, title, body):
-        # Генерируем уникальный ID для новой заметки
+        # Создаем новую заметку
         id = self.generate_unique_id()
-        # Получаем текущую дату и время создания заметки
         created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        # Создаем объект заметки и добавляем его в список заметок
         note = Note(id, title, body, created_at)
+        # Добавляем заметку в список
         self.notes.append(note)
         # Сохраняем заметку в файл
         self.save_to_file()
+        # Перезагружаем список заметок из файла, чтобы обновить данные
+        self.load_from_file()
 
     # Метод для генерации уникального ID для новой заметки
     def generate_unique_id(self):
@@ -73,16 +71,15 @@ class NoteManager:
             return int(self.notes[-1].id) + 1
 
     # Метод для чтения всех заметок
+
     def read_notes(self):
         separator_line = "-" * 30
-        for note in self.notes:
-            # Выводим разделительную линию перед каждой заметкой
+        # Сортируем заметки по дате создания
+        sorted_notes = sorted(self.notes, key=lambda x: x.created_at, reverse=True)
+        for note in sorted_notes:
             print(separator_line)
-            # Выводим заметку
             print(note)
-            # Выводим разделительную линию после каждой заметки
             print(separator_line)
-            # Переводим на новую строку для улучшения читаемости
             print()
 
     # Метод для обновления заметки
@@ -91,35 +88,36 @@ class NoteManager:
         for note in self.notes:
             if note.id == id:
                 note_found = True
-                break
-
-        if not note_found:
-            print("Ошибка: Заметка с указанным ID не найдена. Пожалуйста, введите другой ID.")
-            return
-
-        # Если заметка найдена, запрашиваем новые данные
-        if new_title is None:
-            new_title = input("Введите новое название заметки: ")
-        if new_body is None:
-            new_body = input("Введите новый текст заметки: ")
-
-        for note in self.notes:
-            if note.id == id:
-                # Обновляем заметку
-                note.title = new_title
-                note.body = new_body
+                # Если указаны новое название и/или текст заметки, обновляем их
+                if new_title is not None:
+                    note.title = new_title
+                if new_body is not None:
+                    note.body = new_body
+                # Обновляем время создания
                 note.created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # Сохраняем изменения в файл
                 self.save_to_file()
                 print("Заметка успешно обновлена.")
                 break
 
+        if not note_found:
+            print("Ошибка: Заметка с указанным ID не найдена. Пожалуйста, введите другой ID.")
+
     # Метод для удаления заметки
     def delete_note(self, id):
-        # Удаляем заметку из списка по ID
-        self.notes = [note for note in self.notes if note.id != id]
-        # Сохраняем изменения в файл
+        note_exists = False
+        for note in self.notes:
+            if note.id == id:
+                self.notes.remove(note)
+                note_exists = True
+                break
+
+        if not note_exists:
+            print("Ошибка: Заметка с указанным ID не найдена. Пожалуйста, введите другой ID.")
+            return
+
         self.save_to_file()
+        print("Заметка успешно удалена.")
 
     # Метод для сохранения всех заметок в файл
     def save_to_file(self):
