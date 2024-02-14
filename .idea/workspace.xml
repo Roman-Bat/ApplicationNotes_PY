@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6f6ed67-620d-43c0-959d-85909016530d" name="Changes" comment="Add comments. Add method read notes by date.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager/note_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/manager/note_manager.py" afterDir="false" />
-    </list>
+    <list default="true" id="c6f6ed67-620d-43c0-959d-85909016530d" name="Changes" comment="Add comments. Add method read notes by id." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707948024036</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add comments. Add method read notes by id.">
+      <option name="closed" value="true" />
+      <created>1707948726370</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707948726370</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +185,7 @@
     <MESSAGE value="Add comments at main and note_manager. Rewrite update method." />
     <MESSAGE value="Add comments. Rewrite read/write methods." />
     <MESSAGE value="Add comments. Add method read notes by date." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add comments. Add method read notes by date." />
+    <MESSAGE value="Add comments. Add method read notes by id." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add comments. Add method read notes by id." />
   </component>
 </project>
