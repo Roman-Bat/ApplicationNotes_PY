@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6f6ed67-620d-43c0-959d-85909016530d" name="Changes" comment="Create structure of project">
-      <change beforePath="$PROJECT_DIR$/model/note.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/note.py" afterDir="false" />
-    </list>
+    <list default="true" id="c6f6ed67-620d-43c0-959d-85909016530d" name="Changes" comment="Create branch note_manager. Add code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="note" />
+        <entry key="$PROJECT_DIR$" value="note_manager" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,7 +85,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707941786182</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Create branch Note. Add code in class Node. Merge branch with master. Delete branch">
+      <option name="closed" value="true" />
+      <created>1707942131398</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707942131398</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Create branch note_manager. Add code">
+      <option name="closed" value="true" />
+      <created>1707942370041</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707942370041</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,6 +119,8 @@
     <MESSAGE value="Create project ApplicationNotes" />
     <MESSAGE value="Initialization Readme.md. Add task" />
     <MESSAGE value="Create structure of project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create structure of project" />
+    <MESSAGE value="Create branch Note. Add code in class Node. Merge branch with master. Delete branch" />
+    <MESSAGE value="Create branch note_manager. Add code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create branch note_manager. Add code" />
   </component>
 </project>
